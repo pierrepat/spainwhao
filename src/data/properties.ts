@@ -42,7 +42,7 @@ export const rentals: RentalProperty[] = [
     whatsappMessage:
       "Hi, I'm interested in booking Villa La Barraca. Could you let me know availability?",
     externalLinks: [
-      { label: "Airbnb", url: "https://www.airbnb.com/rooms/VILLA_LA_BARRACA_ID" },
+      { label: "Airbnb", url: "https://www.airbnb.com/rooms/1258271" },
     ],
   },
   {
