@@ -107,17 +107,6 @@ export const VILLA_LA_BARRACA_ABOUT_IMAGE =
 
 /** Generate all photo paths for a property */
 export function getPropertyPhotos(property: RentalProperty): string[] {
-  if (property.slug === "flat-by-the-sea") {
-    // Mixed jpg/png extensions
-    const pngIndices = new Set([4,5,7,18,22,24,26,27,30,46,51,52,53,60,61]);
-    const photos: string[] = [];
-    for (let i = 1; i <= property.photoCount; i++) {
-      const num = String(i).padStart(3, "0");
-      const ext = pngIndices.has(i) ? "png" : "jpg";
-      photos.push(`${property.photoPrefix}${num}.${ext}`);
-    }
-    return photos;
-  }
   const photos: string[] = [];
   for (let i = 1; i <= property.photoCount; i++) {
     const num = String(i).padStart(3, "0");

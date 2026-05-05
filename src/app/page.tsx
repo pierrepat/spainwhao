@@ -218,15 +218,19 @@ export default function Home() {
                 we&apos;d live in ourselves
               </h2>
               <p className="mt-6 leading-relaxed text-mute">
-                SpainWhao S.L. is a family-run property company based on
-                Spain&apos;s Costa Blanca. We design, build, and manage homes
-                that blend contemporary architecture with the warmth of
-                Mediterranean living.
+                SpainWhao S.L. is a family-run property company rooted in
+                Spain&apos;s Costa Blanca. What started as a personal passion
+                for Mediterranean architecture became a business — we fell in
+                love with the coast, bought land, and started building homes
+                the way we thought they should be built: with honest materials,
+                generous light, and spaces that feel good to live in.
               </p>
               <p className="mt-4 leading-relaxed text-mute">
-                From coastal villas to city apartments, we handle every stage
-                — land acquisition, architectural design, construction,
-                interior styling, and ongoing rental management.
+                Today we design, build, and manage properties from Moraira to
+                Madrid. We handle every stage ourselves — finding the right
+                plot, working with architects, overseeing construction, styling
+                the interiors, and managing rentals year-round. Every home in
+                our portfolio is one we&apos;d happily move into ourselves.
               </p>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded">

@@ -10,6 +10,13 @@ const links = [
   { href: "#contact", label: "Contact" },
 ];
 
+function getLangSwitch() {
+  if (typeof window === "undefined") return { label: "ES", href: "/es" };
+  return window.location.pathname.startsWith("/es")
+    ? { label: "EN", href: "/" }
+    : { label: "ES", href: "/es" };
+}
+
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,6 +56,16 @@ export function Nav() {
               {link.label}
             </a>
           ))}
+          <a
+            href={getLangSwitch().href}
+            className={`rounded border px-2.5 py-0.5 text-xs font-medium transition-colors duration-200 ${
+              scrolled
+                ? "border-line text-mute hover:text-ink"
+                : "border-white/30 text-white/70 hover:text-white"
+            }`}
+          >
+            {getLangSwitch().label}
+          </a>
         </div>
 
         {/* Mobile hamburger */}

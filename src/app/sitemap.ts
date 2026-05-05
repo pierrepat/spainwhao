@@ -23,6 +23,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       priority: 1,
     },
+    {
+      url: `${base}/es`,
+      lastModified: new Date(),
+      priority: 0.9,
+    },
     ...rentalPages,
     ...projectPages,
   ];
