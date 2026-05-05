@@ -15,6 +15,8 @@ export interface RentalProperty {
   whatsappMessage: string;
   /** External listing links */
   externalLinks: { label: string; url: string }[];
+  /** Airbnb rating if available */
+  rating: { score: number; reviews: number; source: string } | null;
 }
 
 export const rentals: RentalProperty[] = [
@@ -44,6 +46,7 @@ export const rentals: RentalProperty[] = [
     externalLinks: [
       { label: "Airbnb", url: "https://www.airbnb.com/rooms/1258271" },
     ],
+    rating: { score: 4.67, reviews: 12, source: "Airbnb" },
   },
   {
     slug: "flat-by-the-sea",
@@ -71,6 +74,7 @@ export const rentals: RentalProperty[] = [
     externalLinks: [
       { label: "Airbnb", url: "https://www.airbnb.com/rooms/12957503" },
     ],
+    rating: { score: 4.64, reviews: 33, source: "Airbnb" },
   },
   {
     slug: "claudio-coello",
@@ -98,6 +102,7 @@ export const rentals: RentalProperty[] = [
     externalLinks: [
       { label: "HomeClub", url: "https://www.homeclub.com/property/2129/" },
     ],
+    rating: null,
   },
 ];
 

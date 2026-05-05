@@ -28,6 +28,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       priority: 0.9,
     },
+    {
+      url: `${base}/privacy`,
+      lastModified: new Date(),
+      priority: 0.3,
+    },
     ...rentalPages,
     ...projectPages,
   ];

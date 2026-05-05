@@ -91,6 +91,33 @@ export function ContactForm() {
         </select>
       </div>
 
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label htmlFor="checkin" className="block text-sm font-medium text-ink">
+            Check-in
+            <span className="ml-1 font-normal text-mute">(optional)</span>
+          </label>
+          <input
+            type="date"
+            id="checkin"
+            name="checkin"
+            className="mt-1.5 w-full rounded border border-line bg-bg px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-sage"
+          />
+        </div>
+        <div>
+          <label htmlFor="checkout" className="block text-sm font-medium text-ink">
+            Check-out
+            <span className="ml-1 font-normal text-mute">(optional)</span>
+          </label>
+          <input
+            type="date"
+            id="checkout"
+            name="checkout"
+            className="mt-1.5 w-full rounded border border-line bg-bg px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-sage"
+          />
+        </div>
+      </div>
+
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-ink">
           Message
@@ -98,7 +125,7 @@ export function ContactForm() {
         <textarea
           id="message"
           name="message"
-          rows={4}
+          rows={3}
           required
           className="mt-1.5 w-full resize-none rounded border border-line bg-bg px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-sage"
         />

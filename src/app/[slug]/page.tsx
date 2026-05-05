@@ -87,6 +87,14 @@ function RentalPage({ property }: { property: RentalProperty }) {
               <span className="inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
                 {property.location}
               </span>
+              {property.rating && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="#F59E0B">
+                    <path d="M6 0l1.76 3.57 3.94.57-2.85 2.78.67 3.93L6 8.88 2.48 10.85l.67-3.93L.3 4.14l3.94-.57z" />
+                  </svg>
+                  {property.rating.score} ({property.rating.reviews} reviews)
+                </span>
+              )}
             </div>
             <h1 className="mt-3 font-serif text-3xl font-medium text-white sm:text-4xl md:text-5xl">
               {property.name}
