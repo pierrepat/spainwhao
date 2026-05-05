@@ -16,7 +16,7 @@ export const projects: Project[] = [
     description: "Modern Mediterranean villa with open-plan living and private pool",
     status: "completed",
     heroImage: "/images/bali-20/render_01.jpg",
-    renderCount: 8,
+    renderCount: 7,
   },
   {
     slug: "bali-21",
@@ -25,7 +25,7 @@ export const projects: Project[] = [
     description: "Contemporary coastal home blending indoor and outdoor spaces",
     status: "completed",
     heroImage: "/images/bali-21/render_01.jpg",
-    renderCount: 6,
+    renderCount: 5,
   },
   {
     slug: "bali-21-bis",
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     description: "Refined iteration on the Bali series with enhanced natural light",
     status: "completed",
     heroImage: "/images/bali-21-bis/render_01.jpg",
-    renderCount: 3,
+    renderCount: 2,
   },
   {
     slug: "papa-negro",
