@@ -37,9 +37,9 @@ export const rentals: RentalProperty[] = [
     location: "Moraira, Costa Blanca",
     rentalType: "holiday",
     status: "available",
-    heroImage: "/images/villa-la-barraca/photo_070.jpg",
+    heroImage: "/images/villa-la-barraca/photo_046.jpg",
     hasPhotography: true,
-    photoCount: 109,
+    photoCount: 91,
     photoPrefix: "/images/villa-la-barraca/photo_",
     whatsappMessage:
       "Hi, I'm interested in booking Villa La Barraca. Could you let me know availability?",
@@ -108,7 +108,7 @@ export const rentals: RentalProperty[] = [
 
 export const VILLA_LA_BARRACA = rentals[0];
 export const VILLA_LA_BARRACA_ABOUT_IMAGE =
-  "/images/villa-la-barraca/photo_090.jpg";
+  "/images/villa-la-barraca/photo_066.jpg";
 
 /** Generate all photo paths for a property */
 export function getPropertyPhotos(property: RentalProperty): string[] {
