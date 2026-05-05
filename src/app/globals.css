@@ -4,11 +4,24 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   color: #1F1F1D;
   background: #FAFAF7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Safe area insets for notched phones */
+.fixed.bottom-6 {
+  bottom: max(1.5rem, env(safe-area-inset-bottom));
+}
+
+/* Prevent tap highlight on mobile */
+a, button {
+  -webkit-tap-highlight-color: transparent;
 }
 
 ::selection {

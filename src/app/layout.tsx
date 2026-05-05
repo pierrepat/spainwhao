@@ -15,6 +15,12 @@ const fraunces = Fraunces({
   style: ["normal", "italic"],
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover" as const,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://spainwhao.com"),
   title: "SpainWhao — Houses in Spain, designed and lived in",
