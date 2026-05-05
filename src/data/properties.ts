@@ -5,6 +5,7 @@ export interface RentalProperty {
   description: string;
   highlights: string[];
   location: string;
+  rentalType: "holiday" | "long-term";
   status: "available" | "coming-soon";
   heroImage: string | null;
   hasPhotography: boolean;
@@ -28,6 +29,7 @@ export const rentals: RentalProperty[] = [
       "High-speed fibre wifi included",
     ],
     location: "Moraira, Costa Blanca",
+    rentalType: "holiday",
     status: "available",
     heroImage: "/images/villa-la-barraca/photo_070.jpg",
     hasPhotography: true,
@@ -48,6 +50,7 @@ export const rentals: RentalProperty[] = [
       "Walk everywhere — no car needed",
     ],
     location: "Moraira, Costa Blanca",
+    rentalType: "holiday",
     status: "available",
     heroImage: "/images/flat-by-the-sea/photo_001.jpg",
     hasPhotography: true,
@@ -68,6 +71,7 @@ export const rentals: RentalProperty[] = [
       "Steps from Retiro, Serrano & the Golden Mile",
     ],
     location: "Madrid, Spain",
+    rentalType: "long-term",
     status: "available",
     heroImage: "/images/luxury-flat-madrid/photo_001.jpg",
     hasPhotography: true,
