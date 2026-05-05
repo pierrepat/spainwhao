@@ -35,9 +35,21 @@ function ProjectCard({ project }: { project: Project }) {
 function RentalCardSmall({ rental }: { rental: RentalProperty }) {
   return (
     <div className="group overflow-hidden rounded border border-line bg-white">
-      <div className="flex aspect-[16/9] items-center justify-center bg-sage/10">
-        <p className="font-sans text-sm text-sage/70">Photography coming soon</p>
-      </div>
+      {rental.hasPhotography && rental.heroImage ? (
+        <div className="relative aspect-[16/9] overflow-hidden">
+          <Image
+            src={rental.heroImage}
+            alt={rental.name}
+            fill
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+      ) : (
+        <div className="flex aspect-[16/9] items-center justify-center bg-sage/10">
+          <p className="font-sans text-sm text-sage/70">Photography coming soon</p>
+        </div>
+      )}
       <div className="p-6">
         <h3 className="font-serif text-lg font-medium text-ink">
           {rental.name}
@@ -46,9 +58,20 @@ function RentalCardSmall({ rental }: { rental: RentalProperty }) {
         <p className="mt-3 text-sm leading-relaxed text-mute">
           {rental.tagline}
         </p>
-        <span className="mt-4 inline-block rounded-full bg-sage/10 px-4 py-1.5 text-xs font-medium text-sage">
-          Coming soon
-        </span>
+        <div className="mt-4">
+          {rental.status === "available" ? (
+            <a
+              href={rental.bookingUrl ?? "#contact"}
+              className="inline-block rounded bg-sage px-5 py-2.5 font-sans text-sm font-medium text-white transition-colors hover:bg-sage/85"
+            >
+              Check availability
+            </a>
+          ) : (
+            <span className="inline-block rounded-full bg-sage/10 px-4 py-1.5 text-xs font-medium text-sage">
+              Coming soon
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );
