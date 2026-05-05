@@ -1,10 +1,33 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export function PhotoGallery({ photos, alt }: { photos: string[]; alt: string }) {
   const [selected, setSelected] = useState<number | null>(null);
+
+  const prev = useCallback(() => {
+    setSelected((s) => (s !== null ? (s > 0 ? s - 1 : photos.length - 1) : null));
+  }, [photos.length]);
+
+  const next = useCallback(() => {
+    setSelected((s) => (s !== null ? (s < photos.length - 1 ? s + 1 : 0) : null));
+  }, [photos.length]);
+
+  useEffect(() => {
+    if (selected === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelected(null);
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [selected, prev, next]);
 
   return (
     <>
@@ -49,7 +72,7 @@ export function PhotoGallery({ photos, alt }: { photos: string[]; alt: string })
           <button
             onClick={(e) => {
               e.stopPropagation();
-              setSelected(selected > 0 ? selected - 1 : photos.length - 1);
+              prev();
             }}
             className="absolute left-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
             aria-label="Previous photo"
@@ -78,7 +101,7 @@ export function PhotoGallery({ photos, alt }: { photos: string[]; alt: string })
           <button
             onClick={(e) => {
               e.stopPropagation();
-              setSelected(selected < photos.length - 1 ? selected + 1 : 0);
+              next();
             }}
             className="absolute right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
             aria-label="Next photo"

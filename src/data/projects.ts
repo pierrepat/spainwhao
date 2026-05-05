@@ -5,6 +5,7 @@ export interface Project {
   description: string;
   status: "completed" | "in-progress";
   heroImage: string;
+  renderCount: number;
 }
 
 export const projects: Project[] = [
@@ -15,6 +16,7 @@ export const projects: Project[] = [
     description: "Modern Mediterranean villa with open-plan living and private pool",
     status: "completed",
     heroImage: "/images/bali-20/render_01.jpg",
+    renderCount: 8,
   },
   {
     slug: "bali-21",
@@ -23,6 +25,7 @@ export const projects: Project[] = [
     description: "Contemporary coastal home blending indoor and outdoor spaces",
     status: "completed",
     heroImage: "/images/bali-21/render_01.jpg",
+    renderCount: 6,
   },
   {
     slug: "bali-21-bis",
@@ -31,6 +34,7 @@ export const projects: Project[] = [
     description: "Refined iteration on the Bali series with enhanced natural light",
     status: "completed",
     heroImage: "/images/bali-21-bis/render_01.jpg",
+    renderCount: 3,
   },
   {
     slug: "papa-negro",
@@ -39,5 +43,16 @@ export const projects: Project[] = [
     description: "Bold architectural statement set against the Mediterranean hillside",
     status: "completed",
     heroImage: "/images/papa-negro/render_01.jpg",
+    renderCount: 10,
   },
 ];
+
+/** Generate all render paths for a project */
+export function getProjectRenders(project: Project): string[] {
+  const renders: string[] = [];
+  for (let i = 1; i <= project.renderCount; i++) {
+    const num = String(i).padStart(2, "0");
+    renders.push(`/images/${project.slug}/render_${num}.jpg`);
+  }
+  return renders;
+}
