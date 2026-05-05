@@ -162,7 +162,7 @@ export default function Home() {
 
           {/* Villa La Barraca */}
           <div className="mt-16">
-            <RentalFeatured rental={VILLA_LA_BARRACA} />
+            <RentalFeatured rental={rentals[0]} />
           </div>
 
           {/* Flat by the Sea */}
@@ -170,18 +170,10 @@ export default function Home() {
             <RentalFeatured rental={rentals[1]} reverse />
           </div>
 
-          {/* Coming soon rentals */}
-          {rentals.filter((r) => r.status === "coming-soon").length > 0 && (
-            <div className="mt-24 border-t border-line pt-24">
-              <div className="grid gap-8 sm:grid-cols-2">
-                {rentals
-                  .filter((r) => r.status === "coming-soon")
-                  .map((rental) => (
-                    <RentalFeatured key={rental.slug} rental={rental} />
-                  ))}
-              </div>
-            </div>
-          )}
+          {/* Claudio Coello XVIII */}
+          <div className="mt-24 border-t border-line pt-24">
+            <RentalFeatured rental={rentals[2]} />
+          </div>
         </div>
       </section>
 

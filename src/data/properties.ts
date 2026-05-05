@@ -55,15 +55,23 @@ export const rentals: RentalProperty[] = [
   },
   {
     slug: "luxury-flat-madrid",
-    name: "Luxury Flat Madrid",
-    tagline: "High-end urban flat in the heart of the capital",
-    description: "",
-    highlights: [],
+    name: "Claudio Coello XVIII",
+    tagline: "A refined apartment on one of Madrid\u2019s most prestigious streets",
+    description:
+      "A 91 m\u00B2 apartment in the heart of the Salamanca district, on Claudio Coello \u2014 one of Madrid\u2019s most sought-after addresses. Two bedrooms, two en-suite bathrooms, a spacious living-dining area, and a fully equipped independent kitchen. Tree-lined avenues, high-end shopping, museums, and top restaurants are all on your doorstep. Available for long-term rental with all utilities, weekly cleaning, and 24/7 concierge included.",
+    highlights: [
+      "Claudio Coello, Barrio de Salamanca",
+      "91 m\u00B2 \u2014 2 bedrooms, 2 en-suite bathrooms",
+      "Long-term rental (1 month minimum)",
+      "All utilities & weekly cleaning included",
+      "Doorman, lift, A/C & central heating",
+      "Steps from Retiro, Serrano & the Golden Mile",
+    ],
     location: "Madrid, Spain",
-    status: "coming-soon",
-    heroImage: null,
-    hasPhotography: false,
-    bookingUrl: null,
+    status: "available",
+    heroImage: "/images/luxury-flat-madrid/photo_001.jpg",
+    hasPhotography: true,
+    bookingUrl: "https://www.homeclub.com/property/2129/",
   },
 ];
 
