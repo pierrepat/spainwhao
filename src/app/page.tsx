@@ -45,21 +45,23 @@ function RentalFeatured({
         reverse ? "md:[&>*:first-child]:order-2" : ""
       }`}
     >
-      {rental.hasPhotography && rental.heroImage ? (
-        <div className="relative aspect-[4/3] overflow-hidden rounded">
-          <Image
-            src={rental.heroImage}
-            alt={rental.name}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
-        </div>
-      ) : (
-        <div className="flex aspect-[4/3] items-center justify-center rounded bg-sage/10">
-          <p className="font-sans text-sm text-sage/70">Photography coming soon</p>
-        </div>
-      )}
+      <a href={`/${rental.slug}`} className="group block">
+        {rental.hasPhotography && rental.heroImage ? (
+          <div className="relative aspect-[4/3] overflow-hidden rounded">
+            <Image
+              src={rental.heroImage}
+              alt={rental.name}
+              fill
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        ) : (
+          <div className="flex aspect-[4/3] items-center justify-center rounded bg-sage/10">
+            <p className="font-sans text-sm text-sage/70">Photography coming soon</p>
+          </div>
+        )}
+      </a>
       <div>
         <div className="flex flex-wrap gap-2">
           {rental.status === "available" ? (
@@ -91,14 +93,12 @@ function RentalFeatured({
           </ul>
         )}
         <div className="mt-8 flex flex-wrap gap-4">
-          {rental.status === "available" && (
-            <a
-              href={rental.bookingUrl ?? "#contact"}
-              className="inline-block rounded bg-sage px-6 py-3 font-sans text-sm font-medium text-white transition-colors hover:bg-sage/85"
-            >
-              Check availability
-            </a>
-          )}
+          <a
+            href={`/${rental.slug}`}
+            className="inline-block rounded bg-sage px-6 py-3 font-sans text-sm font-medium text-white transition-colors hover:bg-sage/85"
+          >
+            View property
+          </a>
           <a
             href="#contact"
             className="inline-block rounded border border-line px-6 py-3 font-sans text-sm font-medium text-ink transition-colors hover:border-sage hover:text-sage"

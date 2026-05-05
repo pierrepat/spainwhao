@@ -16,6 +16,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://spainwhao.com"),
   title: "SpainWhao — Houses in Spain, designed and lived in",
   description:
     "Family-owned property development and rentals on the Costa Blanca and in Madrid. SpainWhao S.L.",

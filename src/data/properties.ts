@@ -9,8 +9,12 @@ export interface RentalProperty {
   status: "available" | "coming-soon";
   heroImage: string | null;
   hasPhotography: boolean;
-  /** Future booking system integration URL */
-  bookingUrl: string | null;
+  photoCount: number;
+  photoPrefix: string;
+  /** WhatsApp pre-filled message for this property */
+  whatsappMessage: string;
+  /** External listing links */
+  externalLinks: { label: string; url: string }[];
 }
 
 export const rentals: RentalProperty[] = [
@@ -33,31 +37,43 @@ export const rentals: RentalProperty[] = [
     status: "available",
     heroImage: "/images/villa-la-barraca/photo_070.jpg",
     hasPhotography: true,
-    bookingUrl: null, // TODO: integrate booking system
+    photoCount: 109,
+    photoPrefix: "/images/villa-la-barraca/photo_",
+    whatsappMessage:
+      "Hi, I'm interested in booking Villa La Barraca. Could you let me know availability?",
+    externalLinks: [
+      { label: "Airbnb", url: "https://www.airbnb.com/rooms/VILLA_LA_BARRACA_ID" },
+    ],
   },
   {
     slug: "flat-by-the-sea",
     name: "Flat by the Sea",
-    tagline: "True frontline to the sea in Moraira — like living on a boat",
+    tagline: "True frontline to the sea in Moraira \u2014 like living on a boat",
     description:
-      "The only genuine first-line building in Moraira, with nothing between you and the water. This fully refurbished 2-bedroom apartment sits on the first floor, giving you unobstructed views of both capes — from Calpe to El Portet — from the living room, main bedroom, and balcony. Modern finishes throughout, A/C in every room, and high-speed fibre wifi. Leave the car in the covered parking and walk to beaches, restaurants, and the town centre in minutes.",
+      "The only genuine first-line building in Moraira, with nothing between you and the water. This fully refurbished 2-bedroom apartment sits on the first floor, giving you unobstructed views of both capes \u2014 from Calpe to El Portet \u2014 from the living room, main bedroom, and balcony. Modern finishes throughout, A/C in every room, and high-speed fibre wifi. Leave the car in the covered parking and walk to beaches, restaurants, and the town centre in minutes.",
     highlights: [
-      "True frontline — no road, no barrier to the sea",
+      "True frontline \u2014 no road, no barrier to the sea",
       "Panoramic views from Calpe to El Portet",
       "2 bedrooms, fully refurbished",
       "A/C in every room",
       "Covered parking included",
-      "Walk everywhere — no car needed",
+      "Walk everywhere \u2014 no car needed",
     ],
     location: "Moraira, Costa Blanca",
     rentalType: "holiday",
     status: "available",
     heroImage: "/images/flat-by-the-sea/photo_001.jpg",
     hasPhotography: true,
-    bookingUrl: "https://www.airbnb.com/rooms/12957503",
+    photoCount: 67,
+    photoPrefix: "/images/flat-by-the-sea/photo_",
+    whatsappMessage:
+      "Hi, I'm interested in booking the Flat by the Sea. Could you let me know availability?",
+    externalLinks: [
+      { label: "Airbnb", url: "https://www.airbnb.com/rooms/12957503" },
+    ],
   },
   {
-    slug: "luxury-flat-madrid",
+    slug: "claudio-coello",
     name: "Claudio Coello XVIII",
     tagline: "A refined apartment on one of Madrid\u2019s most prestigious streets",
     description:
@@ -75,10 +91,37 @@ export const rentals: RentalProperty[] = [
     status: "available",
     heroImage: "/images/luxury-flat-madrid/photo_001.jpg",
     hasPhotography: true,
-    bookingUrl: "https://www.homeclub.com/property/2129/",
+    photoCount: 12,
+    photoPrefix: "/images/luxury-flat-madrid/photo_",
+    whatsappMessage:
+      "Hi, I'm interested in the Claudio Coello apartment for a long-term rental. Could we discuss availability?",
+    externalLinks: [
+      { label: "HomeClub", url: "https://www.homeclub.com/property/2129/" },
+    ],
   },
 ];
 
 export const VILLA_LA_BARRACA = rentals[0];
 export const VILLA_LA_BARRACA_ABOUT_IMAGE =
   "/images/villa-la-barraca/photo_090.jpg";
+
+/** Generate all photo paths for a property */
+export function getPropertyPhotos(property: RentalProperty): string[] {
+  if (property.slug === "flat-by-the-sea") {
+    // Mixed jpg/png extensions
+    const pngIndices = new Set([4,5,7,18,22,24,26,27,30,46,51,52,53,60,61]);
+    const photos: string[] = [];
+    for (let i = 1; i <= property.photoCount; i++) {
+      const num = String(i).padStart(3, "0");
+      const ext = pngIndices.has(i) ? "png" : "jpg";
+      photos.push(`${property.photoPrefix}${num}.${ext}`);
+    }
+    return photos;
+  }
+  const photos: string[] = [];
+  for (let i = 1; i <= property.photoCount; i++) {
+    const num = String(i).padStart(3, "0");
+    photos.push(`${property.photoPrefix}${num}.jpg`);
+  }
+  return photos;
+}
