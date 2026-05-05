@@ -32,45 +32,74 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
-function RentalCardSmall({ rental }: { rental: RentalProperty }) {
+function RentalFeatured({
+  rental,
+  reverse = false,
+}: {
+  rental: RentalProperty;
+  reverse?: boolean;
+}) {
   return (
-    <div className="group overflow-hidden rounded border border-line bg-white">
+    <div
+      className={`grid items-center gap-10 md:grid-cols-2 md:gap-16 ${
+        reverse ? "md:[&>*:first-child]:order-2" : ""
+      }`}
+    >
       {rental.hasPhotography && rental.heroImage ? (
-        <div className="relative aspect-[16/9] overflow-hidden">
+        <div className="relative aspect-[4/3] overflow-hidden rounded">
           <Image
             src={rental.heroImage}
             alt={rental.name}
             fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
       ) : (
-        <div className="flex aspect-[16/9] items-center justify-center bg-sage/10">
+        <div className="flex aspect-[4/3] items-center justify-center rounded bg-sage/10">
           <p className="font-sans text-sm text-sage/70">Photography coming soon</p>
         </div>
       )}
-      <div className="p-6">
-        <h3 className="font-serif text-lg font-medium text-ink">
+      <div>
+        {rental.status === "available" ? (
+          <span className="inline-block rounded-full bg-sage/10 px-3 py-1 text-xs font-medium text-sage">
+            Available now
+          </span>
+        ) : (
+          <span className="inline-block rounded-full bg-sage/10 px-3 py-1 text-xs font-medium text-sage">
+            Coming soon
+          </span>
+        )}
+        <h3 className="mt-4 font-serif text-2xl font-medium text-ink sm:text-3xl">
           {rental.name}
         </h3>
         <p className="mt-1 text-sm text-mute">{rental.location}</p>
-        <p className="mt-3 text-sm leading-relaxed text-mute">
-          {rental.tagline}
-        </p>
-        <div className="mt-4">
-          {rental.status === "available" ? (
+        <p className="mt-5 leading-relaxed text-mute">{rental.description || rental.tagline}</p>
+        {rental.highlights.length > 0 && (
+          <ul className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {rental.highlights.map((h) => (
+              <li key={h} className="flex items-start gap-2 text-sm text-mute">
+                <span className="mt-1.5 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sage/60" />
+                {h}
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className="mt-8 flex flex-wrap gap-4">
+          {rental.status === "available" && (
             <a
               href={rental.bookingUrl ?? "#contact"}
-              className="inline-block rounded bg-sage px-5 py-2.5 font-sans text-sm font-medium text-white transition-colors hover:bg-sage/85"
+              className="inline-block rounded bg-sage px-6 py-3 font-sans text-sm font-medium text-white transition-colors hover:bg-sage/85"
             >
               Check availability
             </a>
-          ) : (
-            <span className="inline-block rounded-full bg-sage/10 px-4 py-1.5 text-xs font-medium text-sage">
-              Coming soon
-            </span>
           )}
+          <a
+            href="#contact"
+            className="inline-block rounded border border-line px-6 py-3 font-sans text-sm font-medium text-ink transition-colors hover:border-sage hover:text-sage"
+          >
+            Get in touch
+          </a>
         </div>
       </div>
     </div>
@@ -80,8 +109,6 @@ function RentalCardSmall({ rental }: { rental: RentalProperty }) {
 /* ── Page ── */
 
 export default function Home() {
-  const otherRentals = rentals.filter((r) => r.slug !== "villa-la-barraca");
-
   return (
     <div className="min-h-screen bg-bg">
       <Nav />
@@ -133,54 +160,28 @@ export default function Home() {
             Fully furnished, beautifully styled, and ready for your stay.
           </p>
 
-          {/* Featured: Villa La Barraca */}
-          <div className="mt-16 grid items-center gap-10 md:grid-cols-2 md:gap-16">
-            <div className="relative aspect-[4/3] overflow-hidden rounded">
-              <Image
-                src={VILLA_LA_BARRACA.heroImage!}
-                alt={VILLA_LA_BARRACA.name}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            <div>
-              <span className="inline-block rounded-full bg-sage/10 px-3 py-1 text-xs font-medium text-sage">
-                Available now
-              </span>
-              <h3 className="mt-4 font-serif text-2xl font-medium text-ink sm:text-3xl">
-                {VILLA_LA_BARRACA.name}
-              </h3>
-              <p className="mt-1 text-sm text-mute">
-                {VILLA_LA_BARRACA.location}
-              </p>
-              <p className="mt-5 leading-relaxed text-mute">
-                {VILLA_LA_BARRACA.tagline}. A sun-drenched retreat with private
-                pool, landscaped gardens, and interiors styled for comfort.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href={VILLA_LA_BARRACA.bookingUrl ?? "#contact"}
-                  className="inline-block rounded bg-sage px-6 py-3 font-sans text-sm font-medium text-white transition-colors hover:bg-sage/85"
-                >
-                  Check availability
-                </a>
-                <a
-                  href="#contact"
-                  className="inline-block rounded border border-line px-6 py-3 font-sans text-sm font-medium text-ink transition-colors hover:border-sage hover:text-sage"
-                >
-                  Get in touch
-                </a>
-              </div>
-            </div>
+          {/* Villa La Barraca */}
+          <div className="mt-16">
+            <RentalFeatured rental={VILLA_LA_BARRACA} />
           </div>
 
-          {/* Other rentals */}
-          <div className="mt-20 grid gap-8 sm:grid-cols-2">
-            {otherRentals.map((rental) => (
-              <RentalCardSmall key={rental.slug} rental={rental} />
-            ))}
+          {/* Flat by the Sea */}
+          <div className="mt-24 border-t border-line pt-24">
+            <RentalFeatured rental={rentals[1]} reverse />
           </div>
+
+          {/* Coming soon rentals */}
+          {rentals.filter((r) => r.status === "coming-soon").length > 0 && (
+            <div className="mt-24 border-t border-line pt-24">
+              <div className="grid gap-8 sm:grid-cols-2">
+                {rentals
+                  .filter((r) => r.status === "coming-soon")
+                  .map((rental) => (
+                    <RentalFeatured key={rental.slug} rental={rental} />
+                  ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
