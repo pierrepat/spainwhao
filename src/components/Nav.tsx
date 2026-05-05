@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { LogoMark } from "./Logo";
 
 const links = [
-  { href: "#rentals", label: "Rentals" },
-  { href: "#projects", label: "Projects" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#rentals", label: "Rentals" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 function useLang() {
@@ -59,7 +59,7 @@ export function Nav() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 sm:h-20">
-        <a href="#" className="flex-shrink-0">
+        <a href="/" className="flex-shrink-0">
           <LogoMark light={!scrolled} />
         </a>
 
