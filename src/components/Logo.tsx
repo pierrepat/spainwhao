@@ -24,14 +24,14 @@ export function Logo({ className = "", light = false }: { className?: string; li
 }
 
 export function LogoMark({ className = "", light = false }: { className?: string; light?: boolean }) {
-  const color = light ? "#FFFFFF" : "#1F1F1D";
   return (
     <span
-      className={`font-serif text-2xl tracking-tight ${className}`}
-      style={{ color }}
+      className={`font-serif text-[26px] font-medium tracking-tight sm:text-[30px] ${
+        light ? "text-white" : "text-ink"
+      } ${className}`}
       aria-label="SpainWhao"
     >
-      SpainWhao
+      Spain<span className="font-light italic">Whao</span>
     </span>
   );
 }
