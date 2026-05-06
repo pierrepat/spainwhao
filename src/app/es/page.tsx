@@ -211,7 +211,7 @@ export default function HomeEs() {
             <div className="relative aspect-[4/3] overflow-hidden rounded">
               <Image
                 src={VILLA_LA_BARRACA_ABOUT_IMAGE}
-                alt="Villa La Barraca interior"
+                alt="Villa La Barraca jardín y olivo"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"

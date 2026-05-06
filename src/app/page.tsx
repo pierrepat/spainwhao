@@ -255,7 +255,7 @@ export default function Home() {
               <div className="relative aspect-[4/3] overflow-hidden rounded">
                 <Image
                   src={VILLA_LA_BARRACA_ABOUT_IMAGE}
-                  alt="Villa La Barraca interior"
+                  alt="Villa La Barraca garden and olive tree"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
