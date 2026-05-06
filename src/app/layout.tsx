@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "SpainWhao",
     images: [
       {
-        url: "/images/villa-la-barraca/photo_070.jpg",
+        url: "/images/villa-la-barraca/photo_068.jpg",
         width: 1200,
         height: 630,
         alt: "Villa La Barraca — SpainWhao",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "SpainWhao — Houses in Spain, designed and lived in",
     description:
       "Family-owned property development and rentals on the Costa Blanca and in Madrid.",
-    images: ["/images/villa-la-barraca/photo_070.jpg"],
+    images: ["/images/villa-la-barraca/photo_068.jpg"],
   },
 };
 
