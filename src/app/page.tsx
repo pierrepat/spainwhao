@@ -8,6 +8,7 @@ import { projects, Project } from "@/data/projects";
 import { Nav } from "@/components/Nav";
 import { ContactForm } from "@/components/ContactForm";
 import { FadeIn } from "@/components/FadeIn";
+import { HeroSlideshow } from "@/components/HeroSlideshow";
 
 /* ── Rating badge ── */
 
@@ -140,14 +141,7 @@ export default function Home() {
 
       {/* ── Hero ── */}
       <section className="relative h-screen w-full">
-        <Image
-          src={rentals[0].heroImage!}
-          alt={rentals[0].name}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
+        <HeroSlideshow />
         <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/60" />
         <div className="absolute inset-0 flex flex-col items-center justify-end px-6 pb-24 text-center">
           <h1 className="max-w-2xl font-serif text-4xl font-light leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
