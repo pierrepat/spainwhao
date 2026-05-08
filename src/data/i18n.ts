@@ -118,6 +118,53 @@ export const translations = {
     },
     switchLang: "EN",
     switchLangFull: "English",
+    properties: {
+      "villa-la-barraca": {
+        tagline: "Una amplia villa junto a la playa en Moraira para familias y grupos",
+        description:
+          "Situada en un jardín mediterráneo privado de 1.500 m² en la codiciada zona de Moravit en Moraira, Villa La Barraca está a solo 5 minutos a pie de Cala del Andrago y sus restaurantes frente al mar. Dos plantas independientes — cada una con 3 dormitorios, 2 baños, cocina completa y entrada propia — la hacen ideal para dos familias, vacaciones multigeneracionales o grupos. Una piscina de 11×4 m, zona de barbacoa cubierta y jardines cuidados completan el conjunto. Recientemente redecorada con mobiliario moderno que se renueva cada temporada.",
+        highlights: [
+          "6 dormitorios en 2 plantas independientes",
+          "Piscina de 11×4 m y jardín tropical de 1.500 m²",
+          "A 5 min andando de la playa, restaurantes y tiendas",
+          "Aire acondicionado en todas las habitaciones (8 unidades)",
+          "Parking privado para 3 coches",
+          "Wifi de fibra de alta velocidad incluido",
+        ],
+      },
+      "flat-by-the-sea": {
+        tagline: "Primera línea de mar auténtica en Moraira — como vivir en un barco",
+        description:
+          "El único edificio de primera línea auténtica en Moraira, sin nada entre tú y el agua. Este apartamento de 2 dormitorios totalmente reformado está en la primera planta, con vistas despejadas a ambos cabos — de Calpe a El Portet — desde el salón, dormitorio principal y balcón. Acabados modernos, aire acondicionado en todas las habitaciones y wifi de fibra de alta velocidad. Deja el coche en el parking cubierto y camina a playas, restaurantes y el centro en minutos.",
+        highlights: [
+          "Primera línea auténtica — sin carretera ni barrera al mar",
+          "Vistas panorámicas de Calpe a El Portet",
+          "2 dormitorios, totalmente reformado",
+          "Aire acondicionado en todas las habitaciones",
+          "Parking cubierto incluido",
+          "Todo a pie — no necesitas coche",
+        ],
+      },
+      "claudio-coello": {
+        tagline: "Un apartamento refinado en una de las calles más prestigiosas de Madrid",
+        description:
+          "Un apartamento de 91 m² en el corazón del barrio de Salamanca, en Claudio Coello — una de las direcciones más codiciadas de Madrid. Dos dormitorios, dos baños en suite, un amplio salón-comedor y una cocina independiente totalmente equipada. Avenidas arboladas, compras de alta gama, museos y los mejores restaurantes a tu puerta. Disponible en alquiler de larga duración con todos los gastos, limpieza semanal y conserjería 24/7 incluidos.",
+        highlights: [
+          "Claudio Coello, Barrio de Salamanca",
+          "91 m² — 2 dormitorios, 2 baños en suite",
+          "Alquiler de larga duración (mínimo 1 mes)",
+          "Todos los gastos y limpieza semanal incluidos",
+          "Portero, ascensor, A/C y calefacción central",
+          "A pasos del Retiro, Serrano y la Milla de Oro",
+        ],
+      },
+    },
+    projectDescriptions: {
+      "bali-20": "Villa mediterránea moderna con espacios abiertos y piscina privada",
+      "bali-21": "Vivienda costera contemporánea que integra interior y exterior",
+      "bali-21-bis": "Iteración refinada de la serie Bali con luz natural optimizada",
+      "papa-negro": "Una propuesta arquitectónica audaz en la ladera mediterránea",
+    },
   },
 } as const;
 

@@ -9,9 +9,9 @@ import { projects, Project } from "@/data/projects";
 import { Nav } from "@/components/Nav";
 import { ContactForm } from "@/components/ContactForm";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
-import { t } from "@/data/i18n";
+import { translations } from "@/data/i18n";
 
-const s = t("es");
+const s = translations.es;
 
 export const metadata: Metadata = {
   title: "SpainWhao — Casas en España, diseñadas y vividas",
@@ -21,6 +21,7 @@ export const metadata: Metadata = {
 };
 
 function ProjectCard({ project }: { project: Project }) {
+  const desc = s.projectDescriptions[project.slug as keyof typeof s.projectDescriptions] || project.description;
   return (
     <a href={`/${project.slug}`} className="group block">
       <div className="relative aspect-[4/3] overflow-hidden rounded">
@@ -36,7 +37,7 @@ function ProjectCard({ project }: { project: Project }) {
         {project.name}
       </h3>
       <p className="mt-1 text-sm leading-relaxed text-mute">
-        {project.description}
+        {desc}
       </p>
     </a>
   );
@@ -49,6 +50,10 @@ function RentalFeatured({
   rental: RentalProperty;
   reverse?: boolean;
 }) {
+  const esContent = s.properties[rental.slug as keyof typeof s.properties];
+  const description = esContent?.description || rental.description || rental.tagline;
+  const highlights = esContent?.highlights || rental.highlights;
+
   return (
     <div
       className={`grid items-center gap-10 md:grid-cols-2 md:gap-16 ${
@@ -85,10 +90,10 @@ function RentalFeatured({
           {rental.name}
         </h3>
         <p className="mt-1 text-sm text-mute">{rental.location}</p>
-        <p className="mt-5 leading-relaxed text-mute">{rental.description || rental.tagline}</p>
-        {rental.highlights.length > 0 && (
+        <p className="mt-5 leading-relaxed text-mute">{description}</p>
+        {highlights.length > 0 && (
           <ul className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {rental.highlights.map((h) => (
+            {highlights.map((h) => (
               <li key={h} className="flex items-start gap-2 text-sm text-mute">
                 <span className="mt-1.5 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sage/60" />
                 {h}
